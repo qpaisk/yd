@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>元旦</title>
+ <script src="https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.js"></script>
+  <style>
+   body {
+      color: #333;
+      background-color: #fff;
+      transition: all 1.5s ease-out;
+    }
+    .night-mode {
+      color: #fff;
+      background-color: #333;
+    }
+  button{
+    width:70px;
+    height:40px;
+    margin-top:5px;
+    }
+  marquee{
+    font-size:30px;
+    }
+  #i{
+    font-size:50px;
+    }
+  #countdown {
+    font-size:24px;
+    font-weight:bold;
+        }
+  </style>
+  </head>
+  <body>	
+  <center>
+  <h2>距2024年1月1日0时0分还有</h2>
+    <div id="countdown"></div>
+  <h1>元旦快乐！</h1>
+  <marquee>元旦快乐</marquee> 
+   <p id="p"></p>
+  	<div id="ydkl"></div> 
+     <button id="mode-switch">模式切换</button>
+  </center>
+  <script>
+ new QRCode(ydkl,"元旦快乐");
+ let str = "在2024年元旦之际，祝福您事业有成，生活美满。愿幸福常伴，快乐永远！"
+ let i = 0
+ let timer = setInterval(()=>{
+   p.innerText += str[i]
+   i++
+   if(i == str.length){
+     clearInterval(timer)
+     }
+   },320)
+ var modeSwitch = document.getElementById('mode-switch');
+    var body = document.body;
+    function toggleMode() {
+      body.classList.toggle('night-mode');
+      if (body.classList.contains('night-mode')) {
+        modeSwitch.textContent = 'Day Mode';
+      } else {
+        modeSwitch.textContent = 'Night Mode';
+      }
+    }
+    modeSwitch.addEventListener('click', toggleMode);
+     function countdown(endDate) {
+            const now = new Date();
+            const distance = endDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML = days + "天 " + hours + "小时 " + minutes + "分钟 " + seconds + "秒";
+            if (distance < 0) {
+                clearInterval(interval);
+                document.getElementById("countdown").innerHTML = "已结束";
+            }
+        }
+        const endDate = new Date("2023-12-31T23:59:59");
+        const interval = setInterval(() => countdown(endDate), 1000);
+  </script>
+  </body>
+  </html>
