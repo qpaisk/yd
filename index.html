@@ -2,7 +2,7 @@
 <html>
   <head>
 	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>元旦</title>
+	<title>喜迎春节</title>
  <script src="https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.js"></script>
   <style>
    body {
@@ -33,7 +33,7 @@
   </head>
   <body>	
   <center>
-  <h2>距2024年1月1日0时0分还有</h2>
+  <h2>距2024年2月10日0时0分还有</h2>
     <div id="countdown"></div>
   <h1>元旦快乐！</h1>
   <marquee>元旦快乐</marquee> 
@@ -42,8 +42,8 @@
      <button id="mode-switch">模式切换</button>
   </center>
   <script>
- new QRCode(ydkl,"元旦快乐");
- let str = "在2024年元旦之际，祝福您事业有成，生活美满。愿幸福常伴，快乐永远！"
+ new QRCode(ydkl,"新年快乐");
+ let str = "春风送暖入屠苏，新年到来喜气足。愿你在新的一年里，笑口常开，心想事成，万事如意，身体健康，阖家幸福！！！🌹"
  let i = 0
  let timer = setInterval(()=>{
    p.innerText += str[i]
@@ -73,10 +73,10 @@
             document.getElementById("countdown").innerHTML = days + "天 " + hours + "小时 " + minutes + "分钟 " + seconds + "秒";
             if (distance < 0) {
                 clearInterval(interval);
-                document.getElementById("countdown").innerHTML = "元旦快乐";
+                document.getElementById("countdown").innerHTML = "00天00小时00分钟00秒";
             }
         }
-        const endDate = new Date("2024-01-01T00:00:00");
+        const endDate = new Date("2024-02-10T00:00:00");
         const interval = setInterval(() => countdown(endDate), 1000);
   </script>
   </body>
